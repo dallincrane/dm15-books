@@ -32,7 +32,7 @@ app.post('/wishlists', function (req, res, next) {
 
   req.session.wishlist.push(req.body);
 
-  res.sendStatus(req.session.wishlist);
+  res.json(req.session.wishlist);
 });
 
 app.get('/books', booksController.index);

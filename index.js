@@ -1,5 +1,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+
+var config = require('./config.json');
 
 var booksController = require('./controllers/books_controller');
 var moviesController = require('./controllers/movies_controller');
@@ -11,6 +14,28 @@ var logCatchPhrase = function (req, res, next) {
 
 var app = express();
 app.use(bodyParser.json());
+app.use(express.static('public'));
+app.use(session({
+  secret: config.sessionSecret,
+  saveUninitialized: false,
+  resave: false
+}));
+
+app.get('/wishlists', function (req, res, next) {
+  res.json(req.session.wishlist);
+});
+
+app.post('/wishlists', function (req, res, next) {
+  console.log(req.session);
+
+  if (!req.session.wishlist) {
+    req.session.wishlist = [];
+  }
+
+  req.session.wishlist.push(req.body);
+  console.log(req.session);
+  res.sendStatus(204);
+});
 
 app.get('/books', booksController.index);
 app.get('/books/:id', booksController.show);

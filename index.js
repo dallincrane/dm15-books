@@ -26,15 +26,13 @@ app.get('/wishlists', function (req, res, next) {
 });
 
 app.post('/wishlists', function (req, res, next) {
-  console.log(req.session);
-
   if (!req.session.wishlist) {
     req.session.wishlist = [];
   }
 
   req.session.wishlist.push(req.body);
-  console.log(req.session);
-  res.sendStatus(204);
+
+  res.sendStatus(req.session.wishlist);
 });
 
 app.get('/books', booksController.index);

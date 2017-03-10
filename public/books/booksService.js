@@ -1,4 +1,4 @@
-angular.module('biblioteca').service('booksService', function($http){
+function booksService($http) {
   this.books = []
 
   this.getBooks = function(bookIdx) {
@@ -14,4 +14,6 @@ angular.module('biblioteca').service('booksService', function($http){
       url: '/books/' + bookIdx
     })
   }
-});
+}
+
+angular.module('biblioteca').service('booksService', booksService)

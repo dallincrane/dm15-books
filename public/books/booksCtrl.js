@@ -3,6 +3,7 @@ function booksCtrl($scope, $stateParams, booksService) {
   $scope.book = {}
 
   booksService.getBooks().then(function(response) {
+    console.log(response)
     $scope.books = response.data
   })
 

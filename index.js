@@ -4,13 +4,9 @@ var session = require('express-session');
 
 var config = require('./config.json');
 
-var booksController = require('./controllers/books_controller');
-var moviesController = require('./controllers/movies_controller');
+var booksRouter = require('./routes/books_router')
 
-var logCatchPhrase = function (req, res, next) {
-  console.log('Wubba Lubba Dub Dub');
-  next();
-};
+var moviesController = require('./controllers/movies_controller');
 
 var app = express();
 app.use(bodyParser.json());
@@ -35,10 +31,7 @@ app.post('/wishlists', function (req, res, next) {
   res.json(req.session.wishlist);
 });
 
-app.get('/books', booksController.index);
-app.get('/books/:id', booksController.show);
-app.post('/books', logCatchPhrase, booksController.create);
-app.delete('/books/:id', logCatchPhrase, booksController.destroy);
+app.use('/books', booksRouter)
 
 app.get('/movies', moviesController.index);
 app.get('/movies/:id', moviesController.show);

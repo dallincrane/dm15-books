@@ -7,7 +7,7 @@ module.exports = [{
   author: 'Tom Clancey',
   rating: 6
 }, {
-  title: 'Clear And Present Danger',
+  title: 'Strawberry Smiggles',
   author: 'Tom Clancey',
   rating: 6
 }];

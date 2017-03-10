@@ -1,6 +1,6 @@
-<h1> Book Page </h1>
+<h1> Books </h1>
 <div>
-    Title: {{ book.title }} </br>
-    Author: {{ book.author }} </br>
-    Rating: {{ book.rating }} </br>
+  <div ng-repeat="book in books track by $index" >
+    <a ui-sref="book({ bookIdx: $index })">{{ book.title }}</a>
+  </div>
 </div>

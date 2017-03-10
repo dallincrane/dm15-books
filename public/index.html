@@ -5,16 +5,10 @@
 </head>
 <body>
   <div ng-app="biblioteca">
-    <nav ng-controller="navCtrl">
+    <nav>
       <ul>
         <li><a ui-sref="home">Home</a></li>
-        <li>Books
-          <ul>
-            <li ng-repeat="book in books track by $index" >
-              <a ui-sref="books({ bookIdx: $index })">{{ book.title }}</a>
-            </li>
-          </ul>
-        </li>
+        <li><a ui-sref="books">Books</a></li>
       </ul>
     </nav>
 
@@ -26,7 +20,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
   <script src="app.js"></script>
-  <script src="nav/navCtrl.js"></script>
   <script src="books/booksCtrl.js"></script>
   <script src="books/booksService.js"></script>
 </body>

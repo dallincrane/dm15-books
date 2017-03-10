@@ -1,4 +1,3 @@
-//  /controllers/books_controller.js
 var books = require('../models/books');
 
 module.exports = {

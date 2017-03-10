@@ -3,16 +3,9 @@ var books = require('../models/books');
 
 module.exports = {
   index: function (req, res, next) {
-    // var queryRating = parseInt(req.query.rating);
-    //
-    // if (queryRating || queryRating === 0) {
-    //   result = books.filter(function (book) {
-    //     return book.rating === queryRating;
-    //   });
-    //   res.json(result);
-    var searchTerm = parseInt(req.query.search); //= 'Harry'
+    var searchTerm = parseInt(req.query.search);
 
-    if (queryRating || queryRating === 0) {
+    if (searchTerm || searchTerm === 0) {
       result = books.filter(function (book) {
         return book.title === searchTerm || book.author === searchTerm;
       });

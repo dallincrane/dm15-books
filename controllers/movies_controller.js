@@ -1,4 +1,3 @@
-//  /controllers/movies_controller.js
 var movies = require('../models/movies');
 
 module.exports = {

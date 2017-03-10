@@ -8,7 +8,7 @@ var booksController = require('./controllers/books_controller');
 var moviesController = require('./controllers/movies_controller');
 
 var logCatchPhrase = function (req, res, next) {
-  console.log('Wubba Dubba Lub Dub');
+  console.log('Wubba Lubba Dub Dub');
   next();
 };
 
